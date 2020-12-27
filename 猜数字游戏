@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+menu()
+{
+	printf("**************************************\n"); 
+	printf("**********菜     单*******************\n");
+	printf("********** 开始  1********************\n");
+	printf("********** 退出  0********************\n");
+	printf("**************************************\n");
+}
+game()
+{
+	int a=rand()%100+1;
+	int b;
+	printf("输入你猜的数字->:");
+	scanf("%d",&b);
+	while(1)
+	{
+		if (b>a)
+		printf("你猜的大了\n");
+		else if(b<a)
+		printf("你猜小了\n");
+		else
+		{
+			printf("你猜对了\n");
+			break;
+		}
+		printf("输入你猜的数字->:");
+	    scanf("%d",&b);
+	}
+}
+int main()
+{
+	int i;
+	srand((unsigned)time(NULL));
+	do
+	{
+	menu();
+    printf("请选择->:");
+	scanf("%d",&i);
+	if(1==i)
+	game();
+	else if(0==i)
+	break;
+	else
+	printf("请重新选择正确选项->\n") ;
+	}while(i);
+	return 0;
+ } 
