@@ -7,7 +7,7 @@
 menu()
 {
 	printf("**************************\n");
-	printf("*********菜    单*********\n");
+	printf("********* 菜    单  ******\n");
 	printf("*********开始    1  ******\n");
 	printf("*********退出    0  ******\n");
 	printf("**************************\n");
@@ -64,9 +64,9 @@ wanjia(char b[h][l],int h1,int l1)
 	{
 		if((h2>=1&&h2<=3)&&(l2>=1&&l2<=3))
 		{
-			if(b[h2][l2]!='*'&&b[h2][l2]!='#')
+			if(b[h2][l2]!='X'&&b[h2][l2]!='O')
 			{
-				b[h2][l2]='*';
+				b[h2][l2]='X';
 				break;
 			}
 			else 
@@ -77,7 +77,7 @@ wanjia(char b[h][l],int h1,int l1)
 		}
 		else
 		{
-			printf("输入无效位置，请重新输入->:");
+			printf("输入位置无效，请重新输入->:");
 			scanf("%d%d",&h2,&l2);
 		}
 		
@@ -92,7 +92,7 @@ int pan(char b[h][l],int h1,int l1)
 	        {
 				for(j=1;j<=l1;j++)
 				{
-					if(b[i][j]=='*'||b[i][j]=='#')
+					if(b[i][j]=='X'||b[i][j]=='O')
 					t++;
 				}
 			}
@@ -112,9 +112,9 @@ diannao(char b[h][l],int h1,int l1)
 	{
 		if(d==1)
 		break;
-		if(b[h2][l2]!='*'&&b[h2][l2]!='#')
+		if(b[h2][l2]!='X'&&b[h2][l2]!='O')
 			{
-				b[h2][l2]='#';
+				b[h2][l2]='O';
 				break;
 			}
 			else
@@ -148,7 +148,7 @@ char panduan(char b[h][l],int h1,int l1)
 	{
 		for(j=1;j<=l1;j++)
 		{
-			if(b[i][j]!='*'&&b[i][j]!='#')
+			if(b[i][j]!='X'&&b[i][j]!='O')
 			return 'c';
 		}
 	}
@@ -166,19 +166,19 @@ luozi(char b[h][l],int h1,int l1)
 	    diannao(b,h,l);
 	    zhanshi(b,h,l);
 	    s=panduan(b,h,l);
-	    if(s=='*')
+	    if(s=='X')
 	    {
-	    	printf("你赢了!\n");
+	    	printf("恭喜你！你赢了!\n");
 	    	break;
 		}
-		else if(s=='#')
+		else if(s=='O')
 		{
-			printf("你输了，电脑赢了！\n");
+			printf("OH！NO！你输了，电脑赢了！\n");
 			break;
 		}
 		else if(s=='p')
 		{
-			printf("平局\n");
+			printf("大家都没赢--平局!\n");
 			break;
 		}
 		else
@@ -203,14 +203,14 @@ int main()
 	do
 	{
 		menu();
-		printf("选择选项->:");
+		printf("请选择选项->:");
 		scanf("%d",&s);
 		if(1==s)
 		game();
 		else if(0==s)
 	    break;
 		else
-		printf("输入错误，请重新输入\n");
+		printf("输入无效，请重新输入->:\n");
 	}while(s);
 	return 0;
  } 
