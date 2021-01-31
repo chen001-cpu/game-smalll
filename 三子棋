@@ -28,7 +28,7 @@ csh(char b[h][l],int h1,int l1)
 //---|---|---
 //   |   |   
 //---|---|---
-//   |   |  
+//   |   |        棋盘
 zhanshi(char b[h][l],int h1,int l1)
 {
 	int i,j;
